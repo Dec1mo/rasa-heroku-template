@@ -7,8 +7,11 @@ USER root
 RUN chmod -R 777 /app
 USER 1001
 
-RUN chmod -R 777 /opt/venv/lib/python3.8/site-packages
-RUN pip3 install underthesea
+RUN pip install --upgrade pip
+RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+USER docker
+
+RUN pip install underthesea --user
 RUN rasa train nlu
 
 ENTRYPOINT ["/app/server.sh"]
