@@ -7,8 +7,8 @@ USER root
 RUN chmod -R 777 /app
 USER 1001
 
-RUN chmod -R 777 /.local
-RUN pip install underthesea --user
+# RUN chmod -R 777 /.local
+RUN pip3 install underthesea
 RUN rasa train nlu
 
 ENTRYPOINT ["/app/server.sh"]
