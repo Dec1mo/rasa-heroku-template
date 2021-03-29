@@ -5,29 +5,52 @@ intents:
   - goodbye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - thank
+  - ask
+  - ask_detail
+  - send_ques
+
+slots:
+  question:
+    type: text
+    influence_conversation: false
 
 responses:
+  utter_default:
+  - text: "Tôi không hiểu ý của anh/chị. Hãy nói lại cho tôi thắc mắc của anh/chị."
+
+  utter_fallback:
+  - text: "Tôi không hiểu ý của anh/chị. Hãy nói lại cho tôi thắc mắc của anh/chị."
+
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
+  - text: "Hãy cho tôi biết thắc mắc của anh/chị."
 
   utter_goodbye:
-  - text: "Bye"
+  - text: "Xin cảm ơn và tạm biệt!"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  utter_affirm:
+  - text: "Tôi đã ghi nhận phản hồi của anh/chị."
+    # image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_deny:
+  - text: "Anh/Chị muốn hiển thị lại câu hỏi tương tự đã được trả lời hay gửi thắc mắc cho chúng tôi (sẽ mất 3-5 ngày để xử lý và phản hồi)?"
+    buttons:
+    - title: "Hiển thị lại"
+      payload: '/ask'
+    - title: "Gửi thắc mắc"
+      payload: '/send_ques'
+    - title: "Hỏi câu hỏi khác"
+      payload: '/greet'
+
+  utter_thank:
+  - text: "Cảm ơn anh/chị đã sử dụng dịch vụ hỏi đáp tự động để giảm thời gian chờ đợi xử lý và phản hồi!"
+
+  utter_send_ques:
+  - text: "Tin nhắn tiếp theo của anh/chị sẽ được gửi cho tư vấn viên của chúng tôi để xử lý. Chúng tôi sẽ phản hồi trong 3-5 ngày."
+
+actions:
+- action_ask
+- action_ask_detail
 
 session_config:
   session_expiration_time: 60
