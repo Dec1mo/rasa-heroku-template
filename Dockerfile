@@ -7,7 +7,7 @@ USER root
 RUN chmod -R 777 /app
 USER 1001
 
-chmod -R 777 /opt/venv/lib/python3.8/site-packages
+RUN chmod -R 777 /opt/venv/lib/python3.8/site-packages
 RUN pip3 install underthesea
 RUN rasa train nlu
 
