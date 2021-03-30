@@ -6,10 +6,10 @@ COPY server.sh /app/server.sh
 
 USER root
 RUN chmod -R 777 /app
-USER 1001
+# USER 1001
 
-RUN pip install --upgrade pip -H
-RUN pip install underthesea -H
+RUN pip install --upgrade pip
+RUN pip install underthesea
 
 RUN rasa train nlu
 
