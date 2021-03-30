@@ -259,5 +259,9 @@ nlu:
     - Người tố cáo có các quyền như thế nào?
 
 - intent: ask_detail
+  examples: |
+  - /ask_detail
 
 - intent: send_ques
+  examples: |
+  - /send_ques
