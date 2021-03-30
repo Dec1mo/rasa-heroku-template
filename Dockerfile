@@ -11,6 +11,7 @@ RUN chmod -R 777 /app
 RUN pip install --upgrade pip
 RUN pip install underthesea
 
-RUN rasa train nlu || true
+# RUN rasa train nlu || true
+RUN rasa train || true
 
 ENTRYPOINT ["/app/server.sh"]
