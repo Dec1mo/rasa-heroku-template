@@ -1,6 +1,18 @@
 version: "2.0"
 
 stories:
+- story: super_quick_path_1
+  steps:
+  - action: action_ask_detail
+  - intent: affirm
+  - action: utter_affirm
+
+- story: super_quick_path_2
+  steps:
+  - action: action_ask_detail
+  - intent: deny
+  - action: utter_deny
+
 - story: quick_path_1
   steps:
   - intent: ask
